@@ -239,14 +239,16 @@ section[id="intro"] p{
 
 }
 
-section[id="moi"] {
+section[id="moi"],
+section[id="veille"] {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     background-color: #efffe8;
     margin-top: 400px;
-    padding: 40px 0;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 
 section[id="moi"] h1 {
@@ -254,7 +256,7 @@ section[id="moi"] h1 {
     color: #0d2000;
     font-family: "Kaushan Script", cursive;
     font-size: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     width: 100%;
 }
 
@@ -263,7 +265,7 @@ section[id="pro"] {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 50px;
     width: 85%;
 }
 
@@ -298,11 +300,13 @@ section[id="pro"] .content p {
 
 .container-moi {
     display: flex;
+    align-items: center;
     justify-content: space-around;
     border-radius: 30px;
-    background-color: #beffa5;
-    width: 70%;
+    background-color: #ffffff;
+    width: 60%;
     padding: 10px;
+    box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);;
 }
 
 .timeline-container {
@@ -384,6 +388,7 @@ footer .colonne {
     flex-direction: column;
     width: 400px;
     justify-content: center;
+    align-items: center;
 }
 
 .separation {
@@ -396,6 +401,7 @@ footer .colonne a[download="CV Zakrzewski Raphaël"] {
     margin-top: 20px;
     border-radius: 20px;
     font-size: 25px;
+    padding: 10px 20px;
 }
 
 .colonne p span {
@@ -420,10 +426,21 @@ sup {
 }
 
 .texte {
-    margin-left: 30px;
+    margin: 20px 20px 0px 60px;
+}
+
+.texte p {
+    margin-bottom: 30px;
+    font-size: 23px;
+    color: #0d2000;
 }
 
 .container-moi img {
-    margin: 10px;
-    height: 250px;
+    margin: 20px;
+    height: 420px;
+    border-radius: 30px;
+}
+
+.colonne .mail a{
+    font-size: 20px;
 }
