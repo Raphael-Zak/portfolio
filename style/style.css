@@ -246,12 +246,13 @@ section[id="veille"] {
     align-items: center;
     width: 100%;
     background-color: #efffe8;
-    margin-top: 400px;
+    margin-top: 380px;
     padding-top: 30px;
     padding-bottom: 40px;
 }
 
-section[id="moi"] h1 {
+section[id="moi"] h1,
+section[id="competence"] h1 {
     text-align: center;
     color: #0d2000;
     font-family: "Kaushan Script", cursive;
@@ -260,7 +261,17 @@ section[id="moi"] h1 {
     width: 100%;
 }
 
+section[id="competence"] {
+    color: #0d2000;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 85%;
+}
+
 section[id="scolaire"],
+section[id="competence"],
 section[id="pro"] {
     display: flex;
     align-items: center;
@@ -306,7 +317,7 @@ section[id="pro"] .content p {
     background-color: #ffffff;
     width: 60%;
     padding: 10px;
-    box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);;
+    box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);
 }
 
 .timeline-container {
@@ -443,4 +454,33 @@ sup {
 
 .colonne .mail a{
     font-size: 20px;
+}
+
+.container-competence1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.container-competence2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    width: 100%;
+    margin-top: 90px;
+}
+
+.container-container-competence {
+    background-color: #efffe8;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    width: 400px;
+}
+
+.container-container-competence:hover {
+    transform: scale(1.05);
 }
