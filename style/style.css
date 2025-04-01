@@ -1,36 +1,101 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
-/* Assurer que le body prend toute la hauteur et dispose les éléments correctement */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(190, 255, 165);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(13, 32, 0);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(7, 17, 0);
+}
+
 html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    color: #0d2000;
 }
 
-p, h1 {
-    font-family:Arial, Helvetica, sans-serif
+p, h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
     text-decoration: none;
 }
 
-/* Styles pour la barre de navigation */
+/* Animation pour les éléments qui apparaissent */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classe de base pour les éléments à animer */
+.reveal {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Délais différents pour chaque élément */
+.reveal:nth-child(1) { animation-delay: 0.1s; }
+.reveal:nth-child(2) { animation-delay: 0.2s; }
+.reveal:nth-child(3) { animation-delay: 0.3s; }
+.reveal:nth-child(4) { animation-delay: 0.4s; }
+.reveal:nth-child(5) { animation-delay: 0.5s; }
+
+/* Styles spécifiques pour la timeline */
+.checkpoint {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease;
+}
+
+.checkpoint.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation pour les éléments de compétences */
+.container-container-competence {
+    transform: scale(0.95);
+    transition: all 0.6s ease;
+}
+
+.container-container-competence.active {
+    transform: scale(1);
+}
+
+/* Reste de votre CSS existant */
 header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Le contenu principal doit prendre tout l'espace disponible */
 main {
     flex-grow: 1;
     margin: 300px 0;
@@ -39,14 +104,13 @@ main {
     align-items: center;
 }
 
-/* Styles pour le footer pour qu'il reste en bas */
 footer {
     text-align: center;
     color: #beffa5;
     width: 100%;
-    z-index: 2; /* Assure que le footer reste au-dessus */
-    height: auto; /* Laisse la hauteur du footer être déterminée par la hauteur du SVG */
-    position: relative; /* Change back to relative positioning */
+    z-index: 2;
+    height: auto;
+    position: relative;
     margin: 20px 0;
     display: flex;
     justify-content: space-evenly;
@@ -69,8 +133,8 @@ nav {
     margin-top: 145px;
     border-radius: 20px;
     width: 90%;
-    position: fixed; /* relative pour que le contenu puisse se positionner correctement avec le SVG */
-    z-index: 100; /* Pour que la barre de navigation soit devant le SVG */
+    position: fixed;
+    z-index: 100;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -92,7 +156,7 @@ footer .colonne a[download="CV Zakrzewski Raphaël"] {
     padding: 10px 15px 10px 10px;
     border-radius: 15px;
     border: 0;
-    font-size: 22px;
+    font-size: 25px;
     font-family: "Kaushan Script", cursive;
     font-weight: bold;
     transition: box-shadow, 0.2s ease;
@@ -101,16 +165,39 @@ footer .colonne a[download="CV Zakrzewski Raphaël"] {
     align-content: center;
 }
 
+a[download="Tableau de compétence Zakrzewski Raphaël"] {
+    text-decoration: none;
+    background-color: #efffe8;
+    color: #0d2000;
+    padding: 10px 15px 10px 10px;
+    border-radius: 15px;
+    border: 0;
+    font-size: 25px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: bold;
+    transition: box-shadow, 0.2s ease;
+    white-space: nowrap;
+    display: inline-block;
+    align-content: center;
+    margin: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(55, 138, 0, 0.7);
+}
+
 nav a:hover,
 footer .colonne a[download="CV Zakrzewski Raphaël"]:hover {
     box-shadow: 0 0 15px #beffa5;
     color: white;
 }
 
+a[download="Tableau de compétence Zakrzewski Raphaël"]:hover {
+    box-shadow: 0px 0px 20px 0px rgba(55, 138, 0, 0.7);
+    scale: 1.05;
+}
+
 nav button a {
-    text-decoration: none; /* Supprimer le soulignement */
-    color: inherit; /* Hériter la couleur du bouton */
-    display: block; /* Pour que l'ancre prenne tout l'espace du bouton */
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .bouton-space {
@@ -120,10 +207,10 @@ nav button a {
 }
 
 .svg-background-nav {
-    position: absolute; /* Positionnement absolu pour qu'il soit derrière le footer */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 0; /* Doit être inférieur au footer */
+    z-index: 0;
     width: 100%;
     overflow: hidden;
 }
@@ -133,7 +220,7 @@ nav button a {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 0; /* Doit être en dessous du footer */
+    z-index: 0;
     margin-top: -26%;
 }
 
@@ -144,103 +231,20 @@ nav button a {
     display: block;
 }
 
-/* Styles de base pour le switch */
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 2em;
-    height: 3.5em;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #beffa5;
-    transition: .5s;
-    border-radius: 30px;
-}
-
-.slider:hover {
-    box-shadow: 0 0 15px #beffa5;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    border-radius: 50%;
-    left: 15%;
-    bottom: 10%;
-    box-shadow: inset 8px -4px 0px 0px #0d2000;
-    background: #beffa5;
-    transition: .5s;
-}
-
-input:checked + .slider:before {
-    transform: translateY(-100%);
-    box-shadow: inset 15px -4px 0px 15px #0d2000;
-}
-
-/* Styles pour les thèmes light et dark */
-body.light {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-body.dark {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-/* Largeur de la scrollbar */
-::-webkit-scrollbar {
-    width: 13px;
-}
-
-/* Fond de la scrollbar */
-::-webkit-scrollbar-track {
-    background: #beffa5;
-}
-
-/* Curseur de la scrollbar */
-::-webkit-scrollbar-thumb {
-    background: #0d2000;
-    border-radius: 5px;
-}
-
-/* Curseur de la scrollbar au survol */
-::-webkit-scrollbar-thumb:hover {
-    background: #040c00;
-}
-
 section[id="intro"] {
     color: #0d2000;
     margin-top: 100px;
     font-family: "Kaushan Script", cursive;
     font-size: 40px;
-    width: 70%;
+    width: 75%;
 }
 
 section[id="intro"] h1,
-section[id="intro"] p{
+section[id="intro"] p {
     font-family: "Kaushan Script", cursive;
-
 }
 
-section[id="moi"],
-section[id="veille"] {
+section[id="moi"] {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,10 +253,13 @@ section[id="veille"] {
     margin-top: 380px;
     padding-top: 30px;
     padding-bottom: 40px;
+    scroll-margin-top: 15vh;
 }
 
 section[id="moi"] h1,
-section[id="competence"] h1 {
+section[id="competence"] h1,
+section[id="projet"] h1,
+section[id="veille"] h1 {
     text-align: center;
     color: #0d2000;
     font-family: "Kaushan Script", cursive;
@@ -267,8 +274,8 @@ section[id="competence"] {
     align-items: center;
     flex-direction: column;
     margin-top: 80px;
-    margin-bottom: 50px;
     width: 85%;
+    scroll-margin-top: 10vh;
 }
 
 section[id="scolaire"],
@@ -276,8 +283,9 @@ section[id="pro"] {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 140px;
     width: 85%;
+    scroll-margin-top: 15vh;
 }
 
 section[id="scolaire"] h1,
@@ -285,22 +293,14 @@ section[id="pro"] h1 {
     margin-bottom: 50px;
     color: #0d2000;
     font-size: 50px;
-}
-
-section[id="scolaire"] .content,
-section[id="pro"] .content {
-    transition: all 0.2s ease-in-out;
-}
-
-section[id="scolaire"] .content:hover,
-section[id="pro"] .content:hover {
-    transform: scale(1.1);
+    font-family: "Kaushan Script", cursive;
 }
 
 section[id="scolaire"] .content h1,
 section[id="pro"] .content h1 {
     font-size: 26px;
     margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 section[id="scolaire"] .content p,
@@ -320,14 +320,18 @@ section[id="pro"] .content p {
     box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);
 }
 
+/* Timeline Container */
 .timeline-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 1200px; /* Ajoutez une largeur max pour éviter que la timeline ne s'étende trop */
+    margin: 0 auto; /* Centre la timeline */
 }
 
+/* Timeline Line */
 .timeline {
     position: absolute;
     width: 3px;
@@ -338,43 +342,52 @@ section[id="pro"] .content p {
     transform: translateX(-50%);
 }
 
+/* Checkpoint Container */
 .checkpoint {
-    position: relative;
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    position: relative;
     width: 100%;
+    margin: 40px 0;
+    padding: 0 30px; /* Ajoute un padding pour l'espacement */
+    box-sizing: border-box;
 }
 
+/* Contenu des checkpoints */
+.content {
+    width: calc(50% - 45px); /* 50% moins 45px (30px de marge + 15px pour le point) */
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #efffe8;
+    box-shadow: 0px 0px 10px 0px rgba(55, 138, 0, 0.7);
+    position: relative;
+}
+
+/* Alignement alterné gauche/droite */
+.checkpoint:nth-child(odd) .content {
+    margin-right: auto; /* Aligné à gauche */
+    right: 15px; /* Compense la moitié du point (15px) */
+    text-align: right;
+}
+
+.checkpoint:nth-child(even) .content {
+    margin-left: auto; /* Aligné à droite */
+    left: 15px; /* Compense la moitié du point (15px) */
+    text-align: left;
+}
+
+/* Point sur la timeline */
 .checkpoint::before {
     content: "";
     position: absolute;
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     background-color: #beffa5;
     border: 3px solid #0d2000;
     border-radius: 50%;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2;
-}
-
-.content {
-    width: 40%;
-    padding: 15px 20px;
-    border-radius: 8px;
-    position: relative;
-    color: #0d2000;
-}
-
-.checkpoint:nth-child(odd) .content {
-    text-align: right;
-    margin-right: auto;
-}
-
-.checkpoint:nth-child(even) .content {
-    text-align: left;
-    margin-left: auto;
+    z-index: 1;
 }
 
 footer a {
@@ -428,7 +441,7 @@ footer .colonne a[download="CV Zakrzewski Raphaël"] {
     margin-bottom: 10px;
 }
 
-.titre h1{
+.titre h1 {
     font-family: "Kaushan Script", cursive;
 }
 
@@ -452,7 +465,7 @@ sup {
     border-radius: 30px;
 }
 
-.colonne .mail a{
+.colonne .mail a {
     font-size: 20px;
 }
 
@@ -475,38 +488,106 @@ sup {
 .container-container-competence {
     background-color: #efffe8;
     border-radius: 30px;
-    box-shadow: 0px 0px 20px -5px rgba(13,32,0,0.5);
+    box-shadow: 0px 0px 10px 0px rgba(55, 138, 0, 0.7);
     padding: 30px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     width: 330px;
-    position: relative; /* Ajouté pour positionnement absolu de l'image */
-    overflow: hidden; /* Cache les parties de l'image qui dépassent */
+    position: relative;
+    overflow: hidden;
 }
 
 .container-container-competence:hover {
-    transform: scale(1.1);
+    scale: 1.05;
+    box-shadow: 0px 0px 20px 0px rgba(55, 138, 0, 0.7);
 }
 
 .container-container-competence img {
-    position: absolute; /* Position absolue par rapport au container */
-    top: 50%; /* Déplace le haut de l'image au milieu du conteneur */
-    left: 50%; /* Déplace le côté gauche de l'image au milieu du conteneur */
-    transform: translate(-50%, -50%); /* Centre précisément l'image */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 80%;
-    object-fit: cover; /* Ajuste l'image pour couvrir tout le container */
+    object-fit: cover;
     opacity: 0.15;
-    z-index: 0; /* Place l'image en arrière-plan */
+    z-index: 0;
 }
 
 .container-container-competence h2,
 .container-container-competence p {
-    position: relative; /* Assure que le texte reste au-dessus de l'image */
-    z-index: 1; /* Place le texte au-dessus de l'image */
+    position: relative;
+    z-index: 1;
 }
 
-.container-container-competence h2{
+.container-container-competence h2 {
     text-align: center;
     margin-bottom: 10px;
     margin-top: -10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
 
+.container-container-competence p {
+    font-size: 20px;
+}
+
+section[id="veille"],
+section[id="projet"] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 80px;
+    scroll-margin-top: 15vh;
+}
+
+.espace {
+    background-color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container-moi {
+        width: 80%;
+    }
+    
+    .container-competence1,
+    .container-competence2 {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        margin-top: 100px;
+    }
+    
+    .bouton-space {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .container-moi {
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .texte {
+        margin: 20px;
+    }
+    
+    .content {
+        width: 80%;
+    }
+    
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .separation {
+        width: 80%;
+        height: 2px;
+        margin: 20px 0;
+    }
 }
