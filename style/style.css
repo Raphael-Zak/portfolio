@@ -492,7 +492,7 @@ sup {
     top: 50%; /* Déplace le haut de l'image au milieu du conteneur */
     left: 50%; /* Déplace le côté gauche de l'image au milieu du conteneur */
     transform: translate(-50%, -50%); /* Centre précisément l'image */
-    height: 90%;
+    height: 80%;
     object-fit: cover; /* Ajuste l'image pour couvrir tout le container */
     opacity: 0.1;
     z-index: 0; /* Place l'image en arrière-plan */
@@ -502,4 +502,9 @@ sup {
 .container-container-competence p {
     position: relative; /* Assure que le texte reste au-dessus de l'image */
     z-index: 1; /* Place le texte au-dessus de l'image */
+}
+
+.container-container-competence h2{
+    text-align: center;
+    margin-bottom: 5px;
 }
