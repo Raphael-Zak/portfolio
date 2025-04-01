@@ -266,12 +266,12 @@ section[id="competence"] {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 80px;
+    margin-bottom: 50px;
     width: 85%;
 }
 
 section[id="scolaire"],
-section[id="competence"],
 section[id="pro"] {
     display: flex;
     align-items: center;
@@ -479,8 +479,27 @@ sup {
     padding: 20px;
     transition: transform 0.3s ease;
     width: 400px;
+    position: relative; /* Ajouté pour positionnement absolu de l'image */
+    overflow: hidden; /* Cache les parties de l'image qui dépassent */
 }
 
 .container-container-competence:hover {
     transform: scale(1.05);
+}
+
+.container-container-competence img {
+    position: absolute; /* Position absolue par rapport au container */
+    top: 50%; /* Déplace le haut de l'image au milieu du conteneur */
+    left: 50%; /* Déplace le côté gauche de l'image au milieu du conteneur */
+    transform: translate(-50%, -50%); /* Centre précisément l'image */
+    height: 90%;
+    object-fit: cover; /* Ajuste l'image pour couvrir tout le container */
+    opacity: 0.1;
+    z-index: 0; /* Place l'image en arrière-plan */
+}
+
+.container-container-competence h2,
+.container-container-competence p {
+    position: relative; /* Assure que le texte reste au-dessus de l'image */
+    z-index: 1; /* Place le texte au-dessus de l'image */
 }
