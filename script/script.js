@@ -1,13 +1,3 @@
-document.getElementById('theme-switch').addEventListener('change', function() {
-    if (this.checked) {
-        document.body.classList.add('light');
-        document.body.classList.remove('dark');
-    } else {
-        document.body.classList.add('dark');
-        document.body.classList.remove('light');
-    }
-});
-
 let lastScrollTop = 0;
 
 window.addEventListener("scroll", function() {
