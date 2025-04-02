@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastermind</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Section de configuration -->
+    <div class="config">
+        <h1>MASTERMIND</h1>
+        <div class="config-choix">
+            <div class="config-choix-ligne">
+                <label for="numColors">Nombre de couleurs :</label>
+                <input type="number" id="numColors" value="9" min="6" max="9"/>
+            </div>
+            <div class="config-choix-ligne">
+                <label for="numToGuess">Nombre de couleurs à deviner :</label>
+                <input type="number" id="numToGuess" value="4" min="4" max="6"/>
+            </div>
+            <div class="config-choix-ligne">
+                <label for="maxAttempts">Nombre de tentative :</label>
+                <input type="number" id="maxAttempts" value="10" min="1" max="10"/>
+            </div>
+        </div>
+        <button id="startGame">Commencer le jeu</button>
+    </div>
+
+    <!-- Section du jeu -->
+    <div class="mastermind" style="display: none;">
+        <h1>MASTERMIND</h1>
+        <div class="board-container">
+            <div class="board">
+                <div id="attemptsContainer" class="attempts-container">
+                    <!-- Tentatives ici -->
+                </div>
+                <div class="current-combination">
+                    <!-- Combinaison actuelle -->
+                </div>
+            </div>
+            <div id="resultPinsContainer" class="result-pins-container">
+                <!-- Pins de résultats ici -->
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="palette">
+                <!-- Palette des couleurs (générée dynamiquement) -->
+            </div>
+            <div class="buttons">
+                <button id="rules">Règles</button>
+                <button id="resetGame">Réinitialiser</button>
+                <button id="resetGuess">Effacer</button>
+                <button id="submitGuess">Tester</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur modal -->
+    <div id="customAlert" class="modal hidden">
+        <div class="modal-content">
+            <p id="alertMessage"></p>
+            <button id="closeAlert">OK</button>
+        </div>
+    </div>
+
+    <!-- Conteneur modal pour les règles -->
+    <div id="rulesModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="rules-container">
+                <p>Il peut y avoir plusieurs fois la même couleur dans la combinaison secrète.</p>
+            </div>
+            <div class="rules-container">
+                <p id="rulesMessage" style="width: 15px; height: 15px; border-radius: 50%; border: 2px solid white;"></p>
+                <p>-Mauvaise couleur</p>
+            </div>
+            <div class="rules-container">
+                <p id="rulesMessage" style="width: 15px; height: 15px; border-radius: 50%; border: 2px solid white; background-color: white;"></p>
+                <p>-Bonne Couleur, mauvaise position</p>
+            </div>
+            <div class="rules-container">
+                <p id="rulesMessage" style="width: 15px; height: 15px; border-radius: 50%; border: 2px solid white; background-color: black;"></p>
+                <p>-Bonne couleur, bonne position</p>
+            </div>
+            <button id="closeRules">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

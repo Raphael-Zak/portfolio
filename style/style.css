@@ -149,7 +149,7 @@ nav h1 {
 }
 
 nav a,
-footer .colonne a[download="CV Zakrzewski Raphaël"] {
+footer .colonne a[href="img/CV Zakrzewski Raphael.pdf"] {
     text-decoration: none;
     background-color: #beffa5;
     color: #0d2000;
@@ -165,7 +165,7 @@ footer .colonne a[download="CV Zakrzewski Raphaël"] {
     align-content: center;
 }
 
-a[download="Tableau de compétence Zakrzewski Raphaël"] {
+a[href="img/Tableau E5 de ZAKRZEWSKI Raphael.pdf"] {
     text-decoration: none;
     background-color: #efffe8;
     color: #0d2000;
@@ -184,12 +184,12 @@ a[download="Tableau de compétence Zakrzewski Raphaël"] {
 }
 
 nav a:hover,
-footer .colonne a[download="CV Zakrzewski Raphaël"]:hover {
+footer .colonne a[href="img/CV Zakrzewski Raphael.pdf"]:hover {
     box-shadow: 0 0 15px #beffa5;
     color: white;
 }
 
-a[download="Tableau de compétence Zakrzewski Raphaël"]:hover {
+a[href="img/Tableau E5 de ZAKRZEWSKI Raphael.pdf"]:hover {
     box-shadow: 0px 0px 20px 0px rgba(55, 138, 0, 0.7);
     scale: 1.05;
 }
@@ -258,13 +258,12 @@ section[id="moi"] {
 
 section[id="moi"] h1,
 section[id="competence"] h1,
-section[id="projet"] h1,
 section[id="veille"] h1 {
     text-align: center;
     color: #0d2000;
     font-family: "Kaushan Script", cursive;
     font-size: 50px;
-    margin-bottom: 35px;
+    margin-bottom: 50px;
     width: 100%;
 }
 
@@ -421,7 +420,7 @@ footer .colonne {
     padding: 20px 0;
 }
 
-footer .colonne a[download="CV Zakrzewski Raphaël"] {
+footer .colonne a[href="img/CV Zakrzewski Raphael.pdf"] {
     margin-top: 20px;
     border-radius: 20px;
     font-size: 25px;
@@ -530,18 +529,250 @@ sup {
     font-size: 20px;
 }
 
-section[id="veille"],
-section[id="projet"] {
+section[id="veille"] {
     display: flex;
-    justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 80px;
     scroll-margin-top: 15vh;
+    flex-direction: column;
 }
 
-.espace {
-    background-color: white;
+section[id="projet"] {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px;
+    scroll-margin-top: 15vh;
+    flex-direction: column;
+    background-color: #efffe8;
+    padding: 30px;
+  }
+
+.container-veille {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    margin: 0 auto;
+    padding: 20px;
 }
+
+.veille-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(55, 138, 0, 0.7);
+    width: 400px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.veille-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 20px 0px rgba(55, 138, 0, 0.7);
+}
+
+.veille-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    background-color: #efffe8;
+}
+
+.veille-image {
+    height: 240px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.veille-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.veille-card:hover .veille-image img {
+    transform: scale(1.05);
+}
+
+.veille-content {
+    padding: 25px;
+}
+
+.veille-content h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #0d2000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.veille-content p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.veille-source {
+    display: flex;
+    align-items: center;
+    color: #0d2000;
+    font-weight: bold;
+}
+
+.veille-source img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+section[id="projet"] h1 {
+    color: #0d2000;
+    font-size: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+
+section[id="projet"] .container-container-projet {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+section[id="projet"] .container-container-projet h1{
+    margin-bottom: 0px;
+}
+
+section[id="projet"] .container-container-projet h1 {
+    font-size: 40px;
+}
+
+section[id="projet"] .container-container-projet h2 {
+    font-size: 30px;
+}
+
+.container-projet {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+
+}
+
+.projet-texte {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 0 10px;
+}
+
+.projet{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #ffffff;
+    width: 280px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px 0px rgba(55, 138, 0, 0.7);
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+    margin: 17px;
+}
+
+.projet h3 {
+    font-size: 25px;
+}
+
+/* Styles for the Learn More button */
+a.learn-more {
+    position: relative;
+    width: 12rem;
+    height: auto;
+    margin-top: 10px;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+    text-decoration: none; /* Pour enlever le soulignement */
+    display: inline-block;
+}
+
+a.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #efffe8;
+    border-radius: 1.625rem;
+    box-shadow: 0px 0px 5px 0px rgba(55, 138, 0, 0.7);
+}
+
+a.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+a.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+
+a.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #0d2000;
+    border-right: 0.125rem solid #0d2000;
+    transform: rotate(45deg);
+}
+
+a.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #0d2000;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Effets au survol */
+a:hover .circle {
+    width: 100%;
+    background: #efffe8;
+    z-index: 1;
+}
+
+a:hover .circle .icon.arrow {
+    background: #0d2000;
+    transform: translate(1rem, 0);
+}
+
+a:hover .button-text {
+    color: #0d2000;
+    z-index: 2;
+}
+
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -589,5 +820,15 @@ section[id="projet"] {
         width: 80%;
         height: 2px;
         margin: 20px 0;
+    }
+
+    .container-veille {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .veille-card {
+        width: 90%;
+        max-width: 400px;
     }
 }
