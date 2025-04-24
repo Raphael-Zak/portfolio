@@ -127,7 +127,6 @@ footer h1 {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #0d2000;
     padding: 25px;
     margin-top: 145px;
@@ -135,7 +134,19 @@ nav {
     width: 90%;
     position: fixed;
     z-index: 100;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden; /* Empêche le débordement */
+}
+
+nav.moved-down {
+    margin-top: 500px;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 nav.hidden {
@@ -204,6 +215,8 @@ nav button a {
     display: flex;
     justify-content: space-between;
     gap: 20px;
+    width: 100%;
+    transition: all 0.3s ease;
 }
 
 .svg-background-nav {
@@ -774,7 +787,9 @@ a:hover .button-text {
 }
 
 
-/* Responsive Design */
+/* Ajoutez ces media queries à la fin de votre fichier CSS */
+
+/* Pour les écrans jusqu'à 1200px (petits écrans d'ordinateur) */
 @media (max-width: 1200px) {
     .container-moi {
         width: 80%;
@@ -783,52 +798,296 @@ a:hover .button-text {
     .container-competence1,
     .container-competence2 {
         flex-wrap: wrap;
+        gap: 30px;
     }
-}
-
-@media (max-width: 768px) {
+    
+    .container-container-competence {
+        width: 45%;
+        min-width: 300px;
+    }
+    
     nav {
-        flex-direction: column;
-        margin-top: 100px;
+        padding: 15px;
+    }
+    
+    nav a {
+        font-size: 20px;
+        padding: 8px 12px;
     }
     
     .bouton-space {
+        gap: 15px;
+    }
+}
+
+/* Pour les tablettes (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    
+    section[id="intro"] {
+        font-size: 30px;
+        width: 90%;
+    }
+    
+    .container-moi img {
+        height: 350px;
+    }
+    
+    footer .colonne {
+        width: 300px;
+    }
+}
+
+/* Pour les téléphones (jusqu'à 768px) */
+@media (max-width: 768px) {
+    nav {
         flex-direction: column;
+        margin-top: 120px;
+        padding: 15px;
+        width: 95%;
+    }
+    
+    nav h1 {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .bouton-space {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
-        margin-top: 20px;
+        margin-top: 15px;
+    }
+    
+    nav a {
+        font-size: 16px;
+        padding: 6px 10px;
     }
     
     .container-moi {
         flex-direction: column;
         width: 90%;
+        padding: 15px;
+    }
+    
+    .container-moi img {
+        height: 250px;
+        margin: 10px 0;
     }
     
     .texte {
-        margin: 20px;
+        margin: 10px;
     }
     
-    .content {
-        width: 80%;
+    .texte p {
+        font-size: 18px;
     }
     
+    section[id="intro"] {
+        font-size: 24px;
+        margin-top: 80px;
+    }
+    
+    section h1 {
+        font-size: 36px !important;
+    }
+
+    .content h1 {
+        font-size: 22px !important;
+    }
+
+    .content p {
+        font-size: 18px !important;
+    }
+    
+    .container-container-competence {
+        width: 100%;
+        min-width: auto;
+        padding: 20px;
+    }
+    
+    .container-container-competence h2 {
+        font-size: 24px;
+    }
+    
+    .container-container-competence p {
+        font-size: 16px;
+    }
+    
+    section[id="footer"] {
+        background-color: #0d2000;
+    }
+
     footer {
-        flex-direction: column;
         align-items: center;
+        padding: 20px 0;
+        bottom: 0;
+    }
+
+    .svg-background-footer {
+        display: none;
+    }
+
+    footer h1 {
+        font-size: 20px !important;
+    }
+
+    footer p {
+        font-size: 12px !important;
+    }
+
+    .colonne .mail a,
+    .colonne a[href="img/CV Zakrzewski Raphael.pdf"] {
+        font-size: 10px !important;
+    }
+
+    .colonne a[href="img/CV Zakrzewski Raphael.pdf"] {
+        padding: 5px 10px !important;
     }
     
     .separation {
-        width: 80%;
-        height: 2px;
-        margin: 20px 0;
+        width: 1px;
+        height: 80px;
+        margin: 15px 0;
+        padding: 0;
+    }
+    
+    footer .colonne {
+        width: 90%;
+        margin: 10px 0;
+    }
+    
+    footer a img {
+        width: 20px;
     }
 
     .container-veille {
         flex-direction: column;
         align-items: center;
+        gap: 30px;
     }
     
     .veille-card {
         width: 90%;
-        max-width: 400px;
+    }
+    
+    .projet {
+        width: 90%;
+        margin: 10px 0;
+    }
+    
+    .container-projet {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    a[href="img/Tableau E5 de ZAKRZEWSKI Raphael.pdf"] {
+        font-size: 18px;
+        padding: 8px 12px;
+        margin: 15px 0;
+    }
+    
+    .svg-background-footer {
+        margin-top: -40%;
+    }
+}
+
+/* Pour les très petits téléphones (jusqu'à 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    nav h1 {
+        font-size: 24px;
+    }
+    
+    nav a {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+    
+    section[id="intro"] {
+        font-size: 20px;
+    }
+    
+    .container-moi img {
+        height: 200px;
+    }
+    
+    .texte p {
+        font-size: 16px;
+    }
+    
+    .container-container-competence h2 {
+        font-size: 20px;
+    }
+    
+    footer h1 {
+        font-size: 24px;
+    }
+    
+    .colonne .mail a {
+        font-size: 16px;
+    }
+    
+    footer .colonne a[href="img/CV Zakrzewski Raphael.pdf"] {
+        font-size: 12px !important;
+        padding: 8px 15px;
+    }
+    
+    .svg-background-footer {
+        margin-top: -50%;
+    }
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #beffa5;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .bouton-space {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(190, 255, 165, 0.3);
+    }
+    
+    .bouton-space.show {
+        display: flex;
+    }
+    
+    /* Animation pour le hamburger */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }

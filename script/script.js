@@ -59,3 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.querySelector('.hamburger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    const nav = document.querySelector('nav');
+    const boutonSpace = document.querySelector('.bouton-space');
+    
+    boutonSpace.classList.toggle('show');
+    nav.classList.toggle('moved-down');
+});
